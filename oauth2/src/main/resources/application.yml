@@ -1,8 +1,8 @@
 server:
-  port: 8080
+  port: 8400
 spring:
   application:
-    name: gateway-service
+    name: oauth2-service
   main:
     allow-bean-definition-overriding: true
 
@@ -14,14 +14,8 @@ spring:
         server-addr: 192.168.174.1:8848,192.168.174.1:8859,192.168.174.1:8860
         file-extension: yaml
 
-    gateway:
-      discovery:
-        locator:
-          enabled: true
-      routes:
-        - id: oauth2-service-routes
-          uri: lb://oauth2-service
-          predicates:
-            - Path=/**
-          filters:
-            - StripPrefix=1
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/oauth?serverTimezone=UTC&useSSL=false
+    username: root
+    password: 123456
