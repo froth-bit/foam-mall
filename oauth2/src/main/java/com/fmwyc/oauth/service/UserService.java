@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+//配置自定义的User类
 @Service
 public class UserService implements UserDetailsService {
 
@@ -19,6 +20,7 @@ public class UserService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUserName(username);
         if (user!=null){
+            //指定应用的用户名，密码
             return new org.springframework.security.core.userdetails.User(
                     user.getUserName(),
                     user.getPasswd(),
