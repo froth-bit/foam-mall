@@ -17,21 +17,32 @@
 	<modules>
 		<module>gateway</module>
 		<module>oauth2</module>
+		<module>common</module>
 	</modules>
 	<properties>
 		<java.version>8</java.version>
+		<lombok.version>1.18.22</lombok.version>
+		<commons.lang3.version>3.8</commons.lang3.version>
+		<spring.boot.redis.version>2.4.2</spring.boot.redis.version>
 	</properties>
 	<dependencies>
 
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>1.18.22</version>
+			<version>${lombok.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
+			<version>${commons.lang3.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+			<version>${spring.boot.redis.version}</version>
 		</dependency>
 	</dependencies>
 
