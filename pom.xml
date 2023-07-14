@@ -24,6 +24,7 @@
 		<lombok.version>1.18.22</lombok.version>
 		<commons.lang3.version>3.8</commons.lang3.version>
 		<spring.boot.redis.version>2.4.2</spring.boot.redis.version>
+		<fastjson.version>1.2.83</fastjson.version>
 	</properties>
 	<dependencies>
 
@@ -44,6 +45,13 @@
 			<artifactId>spring-boot-starter-data-redis</artifactId>
 			<version>${spring.boot.redis.version}</version>
 		</dependency>
+
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>${fastjson.version}</version>
+		</dependency>
+
 	</dependencies>
 
 	<dependencyManagement>
