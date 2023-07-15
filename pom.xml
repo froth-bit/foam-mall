@@ -18,7 +18,8 @@
 		<module>gateway</module>
 		<module>oauth2</module>
 		<module>common</module>
-	</modules>
+        <module>user-service</module>
+    </modules>
 	<properties>
 		<java.version>8</java.version>
 		<lombok.version>1.18.22</lombok.version>
