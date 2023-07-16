@@ -1,0 +1,15 @@
+server:
+  port: 8500
+spring:
+  application:
+    name: user-service
+  main:
+    allow-bean-definition-overriding: true
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.174.1:8848,192.168.174.1:8859,192.168.174.1:8860
+      config:
+        server-addr: 192.168.174.1:8848,192.168.174.1:8859,192.168.174.1:8860
+        file-extension: yaml

@@ -1,6 +1,5 @@
 package com.fmwyc.gateway.oauth2Config;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.ReactiveAuthenticationManager;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
@@ -9,15 +8,12 @@ import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
 import org.springframework.security.oauth2.server.resource.BearerTokenAuthenticationToken;
-import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
 import javax.sql.DataSource;
 
-@Component
 public class ReactiveJdbcAuthManager implements ReactiveAuthenticationManager {
 
-    @Autowired
     private TokenStore tokenStore;
 
     public ReactiveJdbcAuthManager(DataSource dataSource) {
@@ -47,7 +43,7 @@ public class ReactiveJdbcAuthManager implements ReactiveAuthenticationManager {
                     if (!oAuth2Authentication.isAuthenticated()){
                         return Mono.error(new InvalidTokenException("Token not Authenticated"));
                     }
-                    return null;
-                });
+                    return Mono.justOrEmpty(oAuth2Authentication);
+                }).cast(Authentication.class);
     }
 }
