@@ -13,3 +13,14 @@ spring:
       config:
         server-addr: 192.168.174.1:8848,192.168.174.1:8859,192.168.174.1:8860
         file-extension: yaml
+  redis:
+    host: 117.78.51.210
+    port: 6379
+    database: 0
+    lettuce:
+      pool:
+        max-active: 20
+        max-idle: 8
+        max-wait: -1
+        min-idle: 0
+    password: 123456
